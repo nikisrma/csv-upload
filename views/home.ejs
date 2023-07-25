@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSV Uploader</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>CSV Files</h2></div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+              
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% if (files.length > 0) { %> 
+                    <% for (let i = 0; i < files.length; i++) { %> 
+                      <tr id="<%= files[i]._id %>" onclick="seeDetail('<%= files[i]._id %>')" class="pointer">
+                        <td><%= i + 1 %></td>
+                        <td><%= files[i].name %></td>
+                      </tr>
+                    <% } %> 
+                  <% } else { %>
+                    <tr>
+                      <td colspan="2">No files uploaded</td>
+                    </tr>
+                  <% } %>  
+                </tbody>
+
+            </table>
+            <ul class="pagination mt-3">
+              <% for (let i = 1; i <= totalPages; i++) { %>
+                <li class="page-item <%= currentPage == i ? 'active' : '' %>">
+                  <a class="page-link" href="/?page=<%= i %>"><%= i %></a>
+                </li>
+              <% } %>
+            </ul>
+          
+        </div>
+    </div>   
+</body>
+</html>
