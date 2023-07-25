@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // Connect to the local database
-mongoose.connect("mongodb://localhost/uploaded-csv");
+mongoose.connect("mongodb://localhost:27017/uploaded-csv");
 
 // Acquire the database
 const connection = mongoose.connection;
