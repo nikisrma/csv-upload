@@ -1,9 +1,9 @@
 // Require the library
 const mongoose = require('mongoose');
-const username = "nikitasharma";
-const password = "Admin12345";
-const cluster = "polling-system";
-const databaseName = "csv-uploader";
+const username = process.env.DATABASE_USERNAME;
+const password =process.env.DATABASE_PASSWORD;
+const cluster =process.env.CLUSTER_NAME;
+const databaseName =process.env.DATABASE_NAME;
 
 const options = {
   user: username,
@@ -14,7 +14,6 @@ const options = {
   retryWrites: true,
   w: 'majority',
 };
-
 mongoose.connect(`mongodb+srv://${cluster}.czmc1rn.mongodb.net/`, options);
 
 
