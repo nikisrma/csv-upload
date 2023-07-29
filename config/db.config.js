@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const username = "nikitasharma";
 const password = "Admin12345";
 const cluster = "polling-system";
-const databaseName = "polling_system";
+const databaseName = "csv-uploader";
 
 const options = {
   user: username,
